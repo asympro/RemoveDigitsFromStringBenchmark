@@ -26,7 +26,7 @@ public class RemoveDigitsFromStringBenchmark {
 
     private static final String[] STRING_DIGITS = {"0","1","2","3","4","5","6","7","8","9"};
 
-    private static final char[] CHAR_DIGITS = {'0','1','2','3','4','5','6','7','8','9'};
+    private static final char[] CHAR_DIGITS_NO_ZERO = {'1','2','3','4','5','6','7','8','9'};
 
     @Benchmark
     public String greedyReplaceAll() {
@@ -50,7 +50,7 @@ public class RemoveDigitsFromStringBenchmark {
     @Benchmark
     public String madCharReplaceDigits() {
         String iterArg = arg;
-        for (char charDigit : CHAR_DIGITS) {
+        for (char charDigit : CHAR_DIGITS_NO_ZERO) {
             iterArg = arg.replace(charDigit, '0');
         }
         return iterArg.replace("0", "");
